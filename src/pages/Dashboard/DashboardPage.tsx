@@ -11,9 +11,11 @@ import {
   countTransactions,
   averageAmount,
   groupBy,
+  calcDailyStats,
 } from "../../utils/stats";
 import type { DateRange } from "react-day-picker";
 import PayTypePieChart from "../../components/charts/PayTypePieChart";
+import DailyLineChart from "../../components/charts/DailyLineChart";
 
 export default function DashboardPage() {
   const { data: paymentsRes, isLoading } = useQuery({
@@ -49,6 +51,14 @@ export default function DashboardPage() {
     value: items.length,
   }));
 
+  const dailyStats = calcDailyStats(filtered);
+
+  const dailyChartData = dailyStats.map((d) => ({
+    date: d.date,
+    amount: d.sum,
+    count: d.count,
+  }));
+
   const topPayType =
     Object.entries(groupedByPayType).sort((a, b) => b[1].length - a[1].length)[0]?.[0] || "없음";
 
@@ -73,9 +83,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-3 gap-6">
         {/* 왼쪽: 라인 차트 자리 (일별 매출) */}
         <div className="col-span-2">
-          <div className="flex h-80 items-center justify-center rounded-lg border bg-white p-6 text-gray-400 shadow-sm">
-            LineChart 자리
-          </div>
+          <DailyLineChart data={dailyChartData} />
         </div>
 
         {/* 오른쪽: 결제 수단 파이 차트 */}
