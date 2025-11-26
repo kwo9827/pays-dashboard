@@ -13,6 +13,7 @@ import {
   groupBy,
 } from "../../utils/stats";
 import type { DateRange } from "react-day-picker";
+import PayTypePieChart from "../../components/charts/PayTypePieChart";
 
 export default function DashboardPage() {
   const { data: paymentsRes, isLoading } = useQuery({
@@ -40,7 +41,14 @@ export default function DashboardPage() {
   const totalCount = countTransactions(filtered);
   const avgAmount = averageAmount(totalAmount, totalCount);
 
+  // 결제 수단 통계
   const groupedByPayType = groupBy(filtered, "payType");
+  // 결제수단 PieChart용 데이터
+  const payTypeChartData = Object.entries(groupedByPayType).map(([key, items]) => ({
+    name: key,
+    value: items.length,
+  }));
+
   const topPayType =
     Object.entries(groupedByPayType).sort((a, b) => b[1].length - a[1].length)[0]?.[0] || "없음";
 
@@ -61,7 +69,18 @@ export default function DashboardPage() {
         <SummaryCard label="가장 많이 결제된 수단" value={topPayType} />
       </div>
 
-      <div className="text-gray-400">여기는 차트/테이블 들어올 자리</div>
+      {/* 하단 차트 영역(일별 매출, 결제 타입) */}
+      <div className="grid grid-cols-3 gap-6">
+        {/* 왼쪽: 라인 차트 자리 (일별 매출) */}
+        <div className="col-span-2">
+          <div className="flex h-80 items-center justify-center rounded-lg border bg-white p-6 text-gray-400 shadow-sm">
+            LineChart 자리
+          </div>
+        </div>
+
+        {/* 오른쪽: 결제 수단 파이 차트 */}
+        <PayTypePieChart data={payTypeChartData} />
+      </div>
     </DashboardLayout>
   );
 }
