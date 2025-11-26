@@ -1,8 +1,10 @@
+import { useState } from "react";
 import DashboardLayout from "../../components/layout/DashboardLayout";
 import { useQuery } from "@tanstack/react-query";
 import { getPayments } from "../../services/payment";
 
 import SummaryCard from "../../components/cards/SummaryCard";
+import DateRangePicker from "../../components/DateRangePicker";
 import {
   filterByDateRange,
   sumAmount,
@@ -10,11 +12,17 @@ import {
   averageAmount,
   groupBy,
 } from "../../utils/stats";
+import type { DateRange } from "react-day-picker";
 
 export default function DashboardPage() {
   const { data: paymentsRes, isLoading } = useQuery({
     queryKey: ["payments"],
     queryFn: getPayments,
+  });
+
+  const [rage, setRange] = useState<DateRange | undefined>({
+    from: new Date("2025-11-01"),
+    to: new Date("2025-11-30"),
   });
 
   if (isLoading) return <DashboardLayout>Loading...</DashboardLayout>;
@@ -23,10 +31,11 @@ export default function DashboardPage() {
   const payments = paymentsRes.data;
 
   // 날짜는 추가 예정
-  const start = new Date("2020-01-01");
-  const end = new Date("2030-01-01");
+  const start = rage?.from || new Date("1900-01-01");
+  const end = rage?.to || new Date("2100-01-01");
 
   const filtered = filterByDateRange(payments, start, end, "paymentAt");
+
   const totalAmount = sumAmount(filtered);
   const totalCount = countTransactions(filtered);
   const avgAmount = averageAmount(totalAmount, totalCount);
@@ -37,7 +46,12 @@ export default function DashboardPage() {
 
   return (
     <DashboardLayout>
-      <h1 className="mb-6 text-2xl font-bold">Dashboard</h1>
+      {/* <h1 className="mb-6 text-2xl font-bold">Dashboard</h1> */}
+
+      {/* 날짜 선택 */}
+      <div className="mb-6">
+        <DateRangePicker range={rage} onChange={setRange} />
+      </div>
 
       {/* 상단 카드 4개 */}
       <div className="mb-8 grid grid-cols-4 gap-4">
