@@ -11,14 +11,14 @@ export async function getMerchants(): Promise<MerchantListResponse> {
   return res.data;
 }
 
-// 가맹점 상세 조회 (모든 가맹점)
+// 가맹점 상세 조회 (전체 리스트)
 export async function getMerchantDetailsAll(): Promise<MerchantDetailListResponse> {
   const res = await apiClient.get("/merchants/details");
   return res.data;
 }
 
-// 가맹점 코드로 상세 조회
+// 가맹점 코드로 상세 조회 (단일)
 export async function getMerchantDetailByCode(mchtCode: string): Promise<MerchantDetailResponse> {
-  const res = await apiClient.get(`/merchants/detail/${mchtCode}`);
+  const res = await apiClient.get(`/merchants/details/${mchtCode}`);
   return res.data;
 }

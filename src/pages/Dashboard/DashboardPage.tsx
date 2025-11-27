@@ -16,6 +16,8 @@ import {
 import type { DateRange } from "react-day-picker";
 import PayTypePieChart from "../../components/charts/PayTypePieChart";
 import DailyLineChart from "../../components/charts/DailyLineChart";
+import MerChantTopTable from "../../components/tables/MerchantTopTable";
+import { calcMerchantSales } from "../../utils/stats";
 
 export default function DashboardPage() {
   const { data: paymentsRes, isLoading } = useQuery({
@@ -51,16 +53,20 @@ export default function DashboardPage() {
     value: items.length,
   }));
 
+  // 일별 매출 & 건수 통계
   const dailyStats = calcDailyStats(filtered);
-
+  // 일별 차트용 데이터
   const dailyChartData = dailyStats.map((d) => ({
     date: d.date,
     amount: d.sum,
     count: d.count,
   }));
 
+  // 가장 많이 사용된 결제 수단
   const topPayType =
     Object.entries(groupedByPayType).sort((a, b) => b[1].length - a[1].length)[0]?.[0] || "없음";
+
+  const merchantTop = calcMerchantSales(filtered).slice(0, 10);
 
   return (
     <DashboardLayout>
@@ -79,15 +85,20 @@ export default function DashboardPage() {
         <SummaryCard label="가장 많이 결제된 수단" value={topPayType} />
       </div>
 
-      {/* 하단 차트 영역(일별 매출, 결제 타입) */}
+      {/* 하단 (일별 매출, 결제 수단) */}
       <div className="grid grid-cols-3 gap-6">
-        {/* 왼쪽: 라인 차트 자리 (일별 매출) */}
+        {/* 왼쪽 (일별 매출) */}
         <div className="col-span-2">
           <DailyLineChart data={dailyChartData} />
         </div>
 
-        {/* 오른쪽: 결제 수단 파이 차트 */}
+        {/* 오른쪽 (결제 수단) */}
         <PayTypePieChart data={payTypeChartData} />
+      </div>
+
+      {/* 하단 테이블 */}
+      <div className="mt-8">
+        <MerChantTopTable data={merchantTop} />
       </div>
     </DashboardLayout>
   );

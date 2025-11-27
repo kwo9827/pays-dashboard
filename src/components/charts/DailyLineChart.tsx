@@ -27,7 +27,7 @@ export default function DailyLineChart({ data }: Props) {
           <CartesianGrid strokeDasharray="3 3" />
 
           {/* X축: 날짜 */}
-          <XAxis dataKey="date" />
+          <XAxis dataKey="date" tickFormatter={(v) => v.slice(5)} />
 
           {/* 왼쪽축: 매출 */}
           <YAxis yAxisId="left" />

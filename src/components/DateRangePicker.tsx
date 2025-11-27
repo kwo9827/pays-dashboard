@@ -31,7 +31,7 @@ export default function DateRangePicker({ range, onChange }: Props) {
 
   return (
     <div className="relative inline-block" ref={ref}>
-      {/* 날짜 표시하는 버튼 */}
+      {/* 날짜 표시 버튼 */}
       <button
         onClick={() => setOpen((prev) => !prev)}
         className="rounded border bg-white px-4 py-2 text-sm shadow-sm"

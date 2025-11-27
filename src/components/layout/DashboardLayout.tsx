@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import Header from "./Header";
+// import Header from "./Header";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <Sidebar />
 
       <div className="flex flex-1 flex-col">
-        <Header />
+        {/* <Header /> */}
 
         <main className="p-6">{children}</main>
       </div>

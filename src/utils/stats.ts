@@ -50,7 +50,7 @@ export function calcDailyStats(list: { amount: string; paymentAt: string }[]) {
     data.sum += Number(item.amount);
   });
 
-  // Map → Array로 변환, 날짜 순 정렬
+  // 날짜 순 정렬
   return Array.from(map.values()).sort((a, b) => a.date.localeCompare(b.date));
 }
 
@@ -70,6 +70,6 @@ export function calcMerchantSales(list: { mchtCode: string; amount: string }[]) 
     data.count += 1;
   });
 
-  // Map → Array 변환 후 매출 기준 내림차순
+  // 매출 기준 내림차순
   return Array.from(map.values()).sort((a, b) => b.totalAmount - a.totalAmount);
 }

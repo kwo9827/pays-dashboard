@@ -1,7 +1,8 @@
-import DashboardPage from "./pages/Dashboard/DashboardPage";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/router";
 
 function App() {
-  return <DashboardPage />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
