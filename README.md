@@ -64,7 +64,7 @@ React + TypeScript + Vite + TailwindCSS + React Query 기반으로 제작된
 
 ## 🔐 환경 변수 (.env) 설정
 
-### 📄 `.env` 파일
+### ***📄 `.env` 파일
 프로젝트 루트에 아래와 같이 생성해 주세요:
 
 `VITE_API_BASE_URL=https://recruit.paysbypays.com/api/v1`
