@@ -95,6 +95,10 @@ export default function MerchantsPage() {
           <option value="EDU">EDU</option>
           <option value="TRAVEL">TRAVEL</option>
           <option value="SHOP">SHOP</option>
+          <option value="TEST">TEST</option>
+          <option value="MART">MART</option>
+          <option value="CAFE">CAFE</option>
+          <option value="APP">APP</option>  
         </select>
 
         {/* 검색 */}
