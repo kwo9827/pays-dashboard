@@ -44,7 +44,7 @@ React + TypeScript + Vite + TailwindCSS + React Query 기반으로 제작된
 - **정보 우선순위**에 따라 상단(요약) → 그래프(추세) → 표(상세) 구조
 - 대시보드 특성에 맞게 **가독성 높은 숫자 강조 스타일** 적용
 - TailwindCSS로 일관된 색상, 간격, 레이아웃 유지
-- 검색/정렬/필터 기능을 강화하여 **데이터 탐색 중심 UX** 제공
+- 검색/정렬/필터 기능을 사용하여 **데이터 중심 UX** 제공
 
 ---
 
@@ -133,15 +133,17 @@ npm run dev
 node 버전 v20.19.6
 
 🏠 대시보드 화면
-<!-- IMAGE_DASHBOARD -->
+<img width="1882" height="912" alt="image" src="https://github.com/user-attachments/assets/4d4eccd4-f8e5-4857-8f72-d5156597ebfc" />
 💳 거래 내역 페이지
-<!-- IMAGE_PAYMENTS -->
+<img width="1675" height="917" alt="image" src="https://github.com/user-attachments/assets/53db2973-57b4-4c68-9312-8203b5b6270d" />
 🏪 가맹점 목록 페이지
-<!-- IMAGE_MERCHANT_LIST -->
+<img width="1681" height="916" alt="image" src="https://github.com/user-attachments/assets/77801c4c-7507-4008-b2c2-c3db8431f0c9" />
 🏪 가맹점 상세 페이지
-<!-- IMAGE_MERCHANT_DETAIL -->
+<img width="1688" height="660" alt="image" src="https://github.com/user-attachments/assets/f9f4a175-ad57-49b5-ae09-190de22fe9db" />
+
 📈 차트 (Line / Pie)
-<!-- IMAGE_CHARTS -->
+<img width="1090" height="258" alt="image" src="https://github.com/user-attachments/assets/e63b1e43-7d27-4ee7-8905-85f7ae329b73" />
+<img width="535" height="282" alt="image" src="https://github.com/user-attachments/assets/09c257e7-2755-43f1-8b87-b5b5e6536179" />
 
 ## 🙌 마무리
 
