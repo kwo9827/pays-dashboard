@@ -4,7 +4,7 @@ React + TypeScript + Vite + TailwindCSS + React Query 기반으로 제작된
 결제/가맹점 데이터 시각화 대시보드 웹 애플리케이션입니다.
 
 <p align="center">
-![alt text](image.png)
+<img width="1882" height="912" alt="image" src="https://github.com/user-attachments/assets/67f9af4a-96ea-4570-b9e5-34a04d03ca21" />
 </p>
 
 ---
@@ -25,15 +25,15 @@ React + TypeScript + Vite + TailwindCSS + React Query 기반으로 제작된
 - 💳 **거래 내역 페이지**
   - 검색, 정렬, 필터(상태/결제수단)
   - 상태별 뱃지 스타일링
-  - 시간 정렬 토글 기능
+  - 시간 정렬 기능
 
 - 🏪 **가맹점 목록 페이지**
-  - 검색, 정렬(등록일), 상태/업종 필터
+  - 검색, 정렬(가맹점 이름), 상태/업종 필터
   - 가맹점 클릭 시 상세 페이지 이동
 
 - 🏪➡️💳 **가맹점 상세 페이지**
   - 기본 정보 표시
-  - 해당 가맹점의 거래 내역 매핑(프론트 필터링 기반)
+  - 해당 가맹점의 거래 내역
 
 ---
 
