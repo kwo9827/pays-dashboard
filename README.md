@@ -1,7 +1,7 @@
-# 🧾 Pays Dashboard — 결제/가맹점 시각화 대시보드
+# 🧾 Pays Dashboard — 결제/가맹점 대시보드
 
 React + TypeScript + Vite + TailwindCSS + React Query 기반으로 제작된  
-결제/가맹점 데이터 시각화 대시보드 웹 애플리케이션입니다.
+결제/가맹점 데이터 대시보드 웹 애플리케이션입니다.
 
 <p align="center">
 <img width="1882" height="912" alt="image" src="https://github.com/user-attachments/assets/67f9af4a-96ea-4570-b9e5-34a04d03ca21" />
@@ -97,16 +97,16 @@ src/
 
 ---
 
-## 📊 데이터 계산 방법
+## 📊 데이터 계산 
 
 API가 제공하지 않는 데이터(예: 매출 합계, 일별 매출, 결제 수단 분포 등)는  
 프론트엔드에서 직접 계산하여 UI에 표시했습니다.
 
-### 1. 총 매출 / 거래 건수 / 평균 매출**
-### 2. 일별 매출 통계 (LineChart)
-### 3. 결제수단 비율 (PieChart)
-### 4. 가맹점 매출 Top10
-### 5. 가맹점 상세 거래 내역
+1. 총 매출 / 거래 건수 / 평균 매출
+2. 일별 매출 통계 (LineChart)
+3. 결제수단 비율 (PieChart)
+4. 가맹점 매출 Top10
+5. 가맹점 상세 거래 내역
 ---
 
 ## 🖥 실행 방법
