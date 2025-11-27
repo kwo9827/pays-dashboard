@@ -102,25 +102,11 @@ src/
 API가 제공하지 않는 데이터(예: 매출 합계, 일별 매출, 결제 수단 분포 등)는  
 프론트엔드에서 직접 계산하여 UI에 표시했습니다.
 
-### 1. 총 매출 / 총 건수 / 평균 객단가**
-```ts
-const totalAmount = sum(payments.amount);
-const totalCount = payments.length;
-const avgAmount = totalAmount / totalCount;
-```
-
+### 1. 총 매출 / 거래 건수 / 평균 매출**
 ### 2. 일별 매출 통계 (LineChart)
-```ts
-
-```
-
 ### 3. 결제수단 비율 (PieChart)
-```ts
-
-```
-
 ### 4. 가맹점 매출 Top10
-
+### 5. 가맹점 상세 거래 내역
 ---
 
 ## 🖥 실행 방법
